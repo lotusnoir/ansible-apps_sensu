@@ -1,0 +1,37 @@
+{
+ "sensu": [
+   {
+       "name": "sensu",
+       "host": "127.0.0.1",
+       "ssl": false,
+       "port": 4567,
+       "user": "admin",
+       "pass": "{{ sensu_admin_passwd }}",
+       "path": "",
+       "timeout": 5000
+   }
+ ],
+ "uchiwa": {
+    "users": [
+      {
+        "username": "admin",
+        "password": "{{ sensu_uchiwa_admin_passwd }}",
+        "readonly": false
+      {% if sensu_users_list is defined and sensu_users_list|length %}
+      },
+      {% for users in sensu_users_list %}
+      {
+        "username" : "{{ users.name }}",
+        "password": "{{ users.passwd }}",
+        "readonly": {{ users.readonly | default('true') }}
+        {{"}," if not loop.last else "}" }}
+      {% endfor %}
+      {% else %}
+      }
+      {% endif %}
+    ],
+      "port": {{ sensu_uchiwa_port }},
+      "refresh": 5
+  }
+}
+

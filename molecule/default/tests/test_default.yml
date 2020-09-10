@@ -1,0 +1,34 @@
+---
+package:
+  sensu:
+    installed: true
+  uchiwa:
+    installed: true
+  redis-server:
+    installed: true
+port:
+  tcp:3030:
+    listening: true
+    ip:
+      - '0.0.0.0'
+  tcp:4567:
+    listening: true
+    ip:
+      - '0.0.0.0'
+  tcp:3080:
+    listening: true
+    ip:
+      - '0.0.0.0'
+service:
+  sensu-server:
+    enabled: true
+    running: true
+  sensu-client:
+    enabled: true
+    running: true
+  sensu-api:
+    enabled: true
+    running: true
+  uchiwa:
+    enabled: true
+    running: true

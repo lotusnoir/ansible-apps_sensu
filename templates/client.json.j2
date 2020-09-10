@@ -1,0 +1,14 @@
+{
+    "client": {
+        "name": "{{ sensu_client_name }}",
+        "address": "127.0.0.1",
+        "subscriptions": [
+            "ping",
+            "snmp"
+        ],
+        "socket": {
+            "bind": "{{ sensu_client_port }}",
+            "port": {{ sensu_client_bindaddress }}
+        }
+    }
+}

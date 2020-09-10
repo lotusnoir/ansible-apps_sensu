@@ -1,0 +1,81 @@
+---
+- name: "Install requierements"
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - apt-transport-https
+    - gnupg
+
+- name: Add sensu apt signing key
+  apt_key:
+    url: https://sensu.global.ssl.fastly.net/apt/pubkey.gpg
+    state: present
+
+- name: Add sensu repo to apt list
+  apt_repository:
+    repo: deb https://sensu.global.ssl.fastly.net/apt stretch main
+    state: present
+    filename: sensu
+
+- name: Install sensu packages and dependencies
+  package:
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+    cache_valid_time: 3600
+  with_items:
+    - sensu
+    - uchiwa
+    - redis-server
+
+- name: Copy files to change css
+  copy:
+    src: "{{ item }}"
+    dest:  /opt/uchiwa/src/public/bower_components/uchiwa-web/css/uchiwa-default/
+    mode: 0664
+  with_items:
+    - uchiwa-default.css
+    - _well.scss
+  notify:
+    - restart uchiwa
+
+- name: Copy files to change css
+  copy:
+    src: "{{ item }}"
+    dest:  /opt/uchiwa/src/public/bower_components/uchiwa-web/partials/views/
+    mode: 0664
+  with_items:
+    - events.html
+  notify:
+    - restart uchiwa
+
+- name: Copy sensu configuration files
+  template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: sensu
+    group: sensu
+    mode: 0644
+  with_items:
+    - { src: 'client.json.j2', dest: '/etc/sensu/conf.d/client.json' }
+    - { src: 'redis.json.j2', dest: '/etc/sensu/conf.d/redis.json' }
+    - { src: 'transport.json.j2', dest: '/etc/sensu/conf.d/transport.json' }
+    - { src: 'api.json', dest: '/etc/sensu/conf.d/api.json' }
+    - { src: 'uchiwa.json.j2', dest: '/etc/sensu/uchiwa.json' }
+  notify:
+    - restart sensu-server
+    - restart sensu-client
+    - restart sensu-api
+    - restart uchiwa
+
+- name: Start sensu services
+  systemd:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    - sensu-server
+    - sensu-client
+    - sensu-api
+    - uchiwa

@@ -1,0 +1,16 @@
+---
+#client.json
+sensu_client_name: test
+sensu_client_port: 3030
+sensu_client_bindaddress: 0.0.0.0
+#redis.json
+sensu_redis_host: 127.0.0.1
+sensu_redis_port: 6379
+#transport.json
+sensu_transport: redis
+#uchiwa.json
+sensu_uchiwa_port: 3080
+sensu_admin_passwd: "" 
+sensu_uchiwa_admin_passwd: ""
+sensu_users_list: ""
+#  - { name: "test", passwd: "password", readonly: 'true' }
