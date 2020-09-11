@@ -2,7 +2,7 @@
 galaxy_info:
   author: "Philippe leal"
   description: "Install and configure sensu / uchiwa monitoring system with ansible"
-  role_name: apps_sensu
+  role_name: ansible-apps_sensu
   license: "GNU General Public License v3.0"
   min_ansible_version: 2.8
 

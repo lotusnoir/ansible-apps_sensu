@@ -4,8 +4,6 @@ cache: pip
 services: docker
 
 env:
-  global:
-    - ROLE_NAME: apps_sensu
   matrix:
     - MOLECULE_DISTRO: ubuntu2004
     - MOLECULE_DISTRO: ubuntu1804
