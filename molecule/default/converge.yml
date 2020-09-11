@@ -10,4 +10,4 @@
       changed_when: false
 
   roles:
-    - role: ansible-apps_sensu
+    - role: apps_sensu

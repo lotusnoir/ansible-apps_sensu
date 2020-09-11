@@ -4,6 +4,8 @@ cache: pip
 services: docker
 
 env:
+  global:
+    - ROLE_NAME: apps_sensu
   matrix:
     - MOLECULE_DISTRO: ubuntu2004
     - MOLECULE_DISTRO: ubuntu1804
@@ -18,6 +20,12 @@ before_install:
 install:
   # Install test dependencies.
   - pip install molecule yamllint ansible-lint docker molecule-goss
+
+before_script:
+  # To use the role without the ansible github flag
+  - cd ../
+  - mv ansible-$ROLE_NAME $ROLE_NAME
+  - cd $ROLE_NAME
 
 script:
   # Run tests.
