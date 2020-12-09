@@ -10,7 +10,7 @@ sensu_redis_port: 6379
 sensu_transport: redis
 #uchiwa.json
 sensu_uchiwa_port: 3080
-sensu_admin_passwd: "" 
+sensu_admin_passwd: ""
 sensu_uchiwa_admin_passwd: ""
 sensu_users_list: ""
 #  - { name: "test", passwd: "password", readonly: 'true' }

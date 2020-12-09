@@ -31,7 +31,7 @@ scenario:
     - syntax
     - create
     - converge
-    - verify 
+    - verify
     - destroy
 
 verifier:
