@@ -3,7 +3,17 @@
 
 ## Description
 
-[![Build Status](https://travis-ci.com/lotusnoir/ansible-apps_sensu.svg?branch=master)](https://travis-ci.com/lotusnoir/ansible-apps_sensu)[![License](https://img.shields.io/badge/license-MIT%20License-brightgreen.svg)](https://opensource.org/licenses/MIT)[![Ansible Role](https://img.shields.io/badge/ansible%20role-apps__sensu-blue)](https://galaxy.ansible.com/lotusnoir/ansible-apps_sensu/)[![GitHub tag](https://img.shields.io/badge/version-latest-blue)](https://github.com/lotusnoir/ansible-apps_sensu/tags)
+[![Build Status](https://travis-ci.com/lotusnoir/ansible-apps_sensu.svg?branch=master?style=flat)](https://travis-ci.com/lotusnoir/ansible-apps_sensu)
+[![License](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat)](https://opensource.org/licenses/Apache-2.0)
+[![Ansible Role](https://img.shields.io/badge/galaxy-apps_sensu-purple?style=flat)](https://galaxy.ansible.com/lotusnoir/apps_sensu)
+![GitHub repo size](https://img.shields.io/github/repo-size/lotusnoir/ansible-apps_sensu?color=orange&style=flat)
+![Ansible Quality Score](https://img.shields.io/ansible/quality/52300)
+[![downloads](https://img.shields.io/ansible/role/d/52300)](https://galaxy.ansible.com/lotusnoir/apps_sensu)
+[![Version](https://img.shields.io/github/release/lotusnoir/ansible-apps_sensu.svg)](https://github.com/lotusnoir/ansible-apps_sensu/releases/)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=lotusnoir_ansible-apps_sensu&metric=alert_status)](https://sonarcloud.io/dashboard?id=lotusnoir_ansible-apps_sensu)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=lotusnoir_ansible-apps_sensu&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=lotusnoir_ansible-apps_sensu)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=lotusnoir_ansible-apps_sensu&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=lotusnoir_ansible-apps_sensu)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=lotusnoir_ansible-apps_sensu&metric=security_rating)](https://sonarcloud.io/dashboard?id=lotusnoir_ansible-apps_sensu)
 
 Deploy [sensu-core](https://docs.sensu.io/sensu-core/latest/) monitoring system using ansible.
 
